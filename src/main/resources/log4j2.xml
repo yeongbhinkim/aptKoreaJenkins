@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <RollingFile name="File" fileName="C:/Users/yb/Desktop/aptSurfer/log/application.log"
+                     filePattern="logs/application-%d{MM-dd-yyyy}.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <TimeBasedTriggeringPolicy />
+        </RollingFile>
+        <!-- JDBC Appender 설정은 제거했습니다, 필요하시다면 추가하실 수 있습니다 -->
+    </Appenders>
+    <Loggers>
+        <!-- Hibernate SQL 로깅 -->
+        <Logger name="org.hibernate.SQL" level="DEBUG"/>
+        <Logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>
+        <!-- Spring JdbcTemplate 로깅 -->
+        <Logger name="org.springframework.jdbc.core.JdbcTemplate" level="DEBUG"/>
+        <!-- Root Logger 설정 -->
+        <Root level="INFO">
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+</Configuration>

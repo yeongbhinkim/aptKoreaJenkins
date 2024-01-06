@@ -1,0 +1,71 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.2'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.ybkim'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+tasks.withType(Test) {
+	enabled = false
+}
+
+
+repositories {
+	google() // Google의 Maven 리포지토리 추가
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-maven-plugin
+	implementation group: 'org.springframework.boot', name: 'spring-boot-maven-plugin', version: '3.0.2'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc:3.0.2'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:3.0.2'
+	implementation 'org.springframework.boot:spring-boot-starter-validation:3.0.2'
+	implementation 'org.springframework.boot:spring-boot-starter-web:3.1.0'
+	implementation 'org.json:json:20210307'
+	implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+	compileOnly 'org.projectlombok:lombok:1.18.26'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools:3.0.4'
+//	runtimeOnly 'com.oracle.database.jdbc:ojdbc8:21.9.0.0'
+	annotationProcessor 'org.projectlombok:lombok:1.18.26'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.0'
+	implementation 'org.springframework.boot:spring-boot-starter:3.1.0'
+
+	//로그4J https://logging.apache.org/log4j/2.x/maven-artifacts.html
+	implementation 'org.apache.logging.log4j:log4j-api:2.22.0'
+	implementation 'org.apache.logging.log4j:log4j-core:2.22.0'
+
+	// JPA 관련 종속성 추가
+	implementation 'javax.persistence:javax.persistence-api:2.2'
+	implementation 'org.hibernate:hibernate-core:5.6.4.Final'
+	// 다른 필요한 종속성도 함께 추가할 수 있습니다.
+
+	/* 롬복을 junit에서 사용하고자 할때 반드시 포함 */
+	testCompileOnly 'org.projectlombok:lombok:1.18.26'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.26'
+	/******************************************/
+
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml
+	implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.14.2'
+
+	// https://mvnrepository.com/artifact/org.webjars/bootstrap
+	implementation group: 'org.webjars', name: 'bootstrap', version: '5.2.3'
+
+	//Apache Commons CSV CSV 파일 데이터 읽어오는 라이브러리
+	implementation 'org.apache.commons:commons-csv:1.8'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

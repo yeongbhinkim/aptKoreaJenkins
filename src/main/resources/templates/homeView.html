@@ -1,0 +1,62 @@
+<!--
+'*  파 일 명 : src\main\resources\templates\homeView.html
+'*  기    능 : 홈
+'*  작 성 자 : 김영빈
+'*  비    고 : 2023.02.08 작성
+  -->
+<!DOCTYPE html>
+<!--copyParam(title,styles,scripts,style,script,upm,header,nav,main,footer)   &lt;!&ndash;1) 순서를 지켜서 넣거나, 2) 파라미터 이름과 값을 일치시키면 됨&ndash;&gt;-->
+
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/home::home(
+        ~{::title},       <!--/* title */-->
+        ~{},              <!--/* styles */-->
+        ~{},      <!--/* scripts */-->
+        ~{},              <!--/* style */-->
+        ~{::script},              <!--/* script */-->
+        ~{::.upm-inner},  <!--/* upm */-->
+        ~{::header},      <!--/* header */-->
+        ~{::nav},         <!--/* nav */-->
+        ~{::main},        <!--/* main */-->
+        ~{::footer}       <!--/* footer default*/-->
+      )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>홈</title>
+
+  <script defer src="" th:src="@{/js/homeJs/searchBar.js}"></script>
+
+</head>
+<body>
+  <div class="global-wrap">
+    <div class="upm">
+      <div class="inner upm-inner">
+<!--        <th:block th:replace="~{fragment/homeUppermost::afterLoginUpm}"></th:block>-->
+      </div>
+    </div>
+    <div class="hdr">
+      <div class="inner hdr-inner">
+        <header th:replace="~{fragment/homeLogo::logo}"></header>
+      </div>
+    </div>
+    <div class="gnb">
+      <div class="inner gnb-inner">
+        <nav th:replace="~{fragment/homeCenter::global}"></nav>
+      </div>
+    </div>
+    <div class="main">
+      <div class="inner main-inner">
+        <main></main>
+      </div>
+    </div>
+      <div class="foot">
+        <div class="inner foot-inner">
+          <footer></footer>
+        </div>
+      </div>
+  </div>
+</body>
+</html>

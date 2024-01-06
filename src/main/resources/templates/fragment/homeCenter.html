@@ -1,0 +1,98 @@
+<!--
+'*  파 일 명 : src\main\resources\templates\fragment\homeCenter.html
+'*  기    능 : 홈 -> 홈 센터 : 조회 조건 검색
+'*  작 성 자 : 김영빈
+'*  비    고 : 2023.02.08 작성
+  -->
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+</head>
+
+<body>
+<nav th:fragment="global" th:remove="tag">
+  <div class="util-wrap">
+    <div class="util-box">
+      <div class="search-box-wrap">
+        <div class="input_tag">
+          <div class="first_tag">
+            <div class="d-inline-block">
+              <label class="viewLabel">계약일자</label>
+              <input id="contractDate" name="contractDate" class="input_search" type="date"
+                     style="text-align: right">~
+              <!--              <label class="textLabel">~</label>-->
+              <input id="contractDateTo" name="contractDateTo" class="input_search" type="date"
+                     style="text-align: right">
+            </div>
+
+            <div class="d-inline-block">
+              <label>면적</label>
+              <select id="searchArea" name="searchArea" class="select_search">
+                <option value="0">전체</option>
+                <option value="1">60㎡이하</option>
+                <option value="2">60㎡초과~85㎡이하</option>
+                <option value="3">85㎡초과~102㎡이하</option>
+                <option value="4">102㎡초과~135㎡이하</option>
+                <option value="5">135㎡초과</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="second_tag">
+            <div class="d-inline-block">
+              <label>시도</label>
+              <select th:field="*{regionCity}" id="searchSidoCd" name="searchSidoCd" class="select_search"
+                      onchange="sidoCd(this.value)">
+                <option value="ALL" selected="selected">선택하세요.</option>
+                <option th:each="regionCity : ${regionCity}" th:value="${regionCity.CITY_CODE}"
+                        th:text="${regionCity.CITY_NM}">시도
+                </option>
+              </select>
+            </div>
+
+            <div class="d-inline-block">
+              <label>시군구</label>
+              <select id="searchGugunCd" name="searchGugunCd" onchange="gugunCd(this.value)">
+                <option value="ALL" selected="selected">전체</option>
+              </select>
+            </div>
+
+            <div class="d-inline-block">
+              <label>읍면동</label>
+              <select id="searchDongCd" name="searchDongCd">
+                <option value="ALL" selected="selected">전체</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="third_tag">
+            <div class="d-inline-block">
+              <label class="viewLabel">금액선택(만원)</label>
+              <input id="searchFromAmount" name="searchFromAmount" class="input_search" type="text" value=""
+                     maxlength="15"><label class="textLabel">~</label>
+              <input id="searchToAmnount" name="searchToAmount" class="input_search" type="text" value=""
+                     maxlength="15">
+            </div>
+
+            <div class="d-inline-block" style="width: 100%;">
+              <div class="search-box">
+                <button id="searchBtn" style="width: 29px;height: 31px;">검색</button>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div><!--input_tag-->
+      </div><!--search-box-wrap-->
+    </div><!--util-box-->
+  </div><!--util-wrap-->
+</nav>
+</body>
+
+</html>

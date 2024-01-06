@@ -1,0 +1,348 @@
+@charset "utf-8";
+
+
+
+.util-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  letter-spacing: 2px;
+}
+.util-box {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.search-box-wrap {
+  position: relative;
+}
+.detail-box {
+  position: absolute;
+  left: 25px;
+  top: 21px;
+}
+.detail-icon {
+  width: 13px;
+  height: 10px;
+  background-size: cover;
+  background-image: url('/img/icon/icon-triangle_inverted.png');
+  display: block;
+  overflow: hidden;
+  text-indent: -20000px;
+}
+.search-box {
+  position: absolute;
+  right: 25px;
+  top: 17px;
+}
+#searchBtn {
+  width: 16px;
+  height: 17px;
+  background-size: cover;
+  background-image: url('/img/icon/icon-search.png');
+  display: block;
+  overflow: hidden;
+  text-indent: -20000px;
+  background-color: white;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+#keyword:focus {
+  outline: none;
+}
+#hashtags {
+  display: inline-flex;
+}
+#hashtags li {
+  padding: 5px;
+}
+
+.location-selected-wrap {
+  height: 20px;
+  width: 50vw;
+  min-width: 500px;
+  max-width: 650px;
+  padding: 0 4rem;
+  position: relative;
+}
+.condition-reset-wrap {
+  position: absolute;
+  left: 20px;
+  top: 2px;
+}
+
+.align-location {
+  width: 40px;
+  text-align: center;
+}
+.align-hashtag {
+  display: inline-block;
+  margin-top: 5px;
+  width: 80px;
+  height: 30px;
+  line-height: 32px;
+  border-radius: 11px 11px 0 0;
+  font-size: 14px;
+  background-color: #29aeec;
+  border-bottom: none;
+}
+
+/* 상세 박스    */
+.menu input[type='checkbox'] {
+  display: none;
+}
+
+.menu input[type='checkbox'] + label {
+  padding-left: 25px;
+  background-repeat: no-repeat;
+}
+
+.menu {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+}
+
+.menu .menuitems {
+  width: 100%;
+  height: 300px;
+  list-style: none;
+  display: none;
+  border-radius: 5px;
+}
+
+.menu input[type='checkbox']:checked ~ .menuitems {
+  display: block;
+}
+
+/* 상세 박스 끝 */
+
+/* 해시태그 시작 */
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.input_tag {
+  background: white;
+  display: contents;
+  border-radius: 2rem;
+  padding: 1rem 4rem;
+  width: 50vw;
+  flex: 1 1 0%;
+  font-size: 1rem;
+}
+
+.input_tag input {
+  min-width: 500px;
+  max-width: 650px;
+  flex: 1 1 0%;
+  border-radius: 2rem;
+  font-size: 1rem;
+  border: none;
+}
+
+.input_tag__tags {
+  display: inline-flex;
+  height: 20px;
+
+  border: 3px solid #29aeec;
+  border-radius: 2rem;
+  padding: 1rem 4rem;
+  min-width: 600px;
+  max-width: 700px;
+}
+
+.input_tag__tags li {
+  align-items: center;
+  background: #85a3bf;
+  border-radius: 2px;
+  color: black;
+  display: flex;
+  font-weight: 300;
+  list-style: none;
+  margin-right: 10px;
+}
+
+.input_tag__tags li button {
+  align-items: center;
+  appearance: none;
+  background: #333333;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 12px;
+  height: 15px;
+  justify-content: center;
+  line-height: 0;
+  margin-left: 8px;
+  padding: 0;
+  transform: rotate(45deg);
+  width: 15px;
+}
+
+.input_tag__tags li.input_tag__tags__input {
+  background: none;
+  flex-grow: 1;
+  padding: 0;
+}
+
+/* 해시태그 끝 */
+
+/* 지역 태그 시작 */
+.areaboxs li {
+  align-items: center;
+  background: #85a3bf;
+  border-radius: 2px;
+  color: white;
+  display: flex;
+  font-weight: 300;
+  list-style: none;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  padding: 5px 10px;
+}
+
+.areaboxs li button {
+  align-items: center;
+  appearance: none;
+  background: #333333;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 12px;
+  height: 15px;
+  justify-content: center;
+  line-height: 0;
+  margin-left: 8px;
+  padding: 0;
+  transform: rotate(45deg);
+  width: 15px;
+}
+
+/* 지역 태그 끝 */
+
+/* 수정중 */
+.menu .menuitems .detailChoice {
+  width: 100%;
+  height: 90%;
+  display: flex;
+}
+
+.Areadata .selectArea li {
+  display: inline;
+}
+
+.menu .menuitems .detailChoice .detailmenu {
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.menu .menuitems .detailChoice .detailmenu .Area {
+  overflow: hidden;
+  list-style: none;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-left: 55px;
+  min-width: 500px;
+  max-width: 650px;
+}
+
+.menu .menuitems .detailChoice .detailmenu .Areaboxs {
+  background: linear-gradient(to bottom, #8cc841, #29aeec 50%);
+  display: inline-block;
+  width: 90%;
+  height: 85%;
+  position: relative;
+  display: inline-flex;
+  flex: 1 1 0%;
+  border-radius: 54px;
+  padding: 1rem 4rem;
+  border: 3px solid black;
+  overflow: hidden;
+  min-width: 500px;
+  max-width: 650px;
+}
+
+.menu .menuitems .detailChoice .detailmenu .Areaboxs .cont {
+  position: absolute;
+  top: 0px;
+  left: 32px;
+  width: 90%;
+  height: 100%;
+  background: linear-gradient(to bottom, #8cc841, #29aeec 50%);
+  color: black;
+  display: inline-flex;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.cont::-webkit-scrollbar {
+  width: 5px;
+  height: auto;
+}
+.cont::-webkit-scrollbar-thumb {
+  height: 20px;
+  background-clip: content-box;
+  background-color: white;
+  border-radius: 40px;
+}
+
+.cont::-webkit-scrollbar-track {
+  border: 2px solid transparent;
+  background-clip: content-box;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.Areaboxs a {
+  margin: 10px;
+  text-align: center;
+}
+
+.menu .menuitems .detailChoice .detailmenu li {
+  float: left;
+}
+
+.menu .menuitems .detailChoice .detailmenu li.is_on .btn {
+  font-weight: bold;
+  color: black;
+  background-color: #8cc841;
+}
+
+.menu .menuitems .detailChoice .detailmenu .btn {
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.hashtagList {
+  display: inline-block;
+  overflow-wrap: break-word;
+  margin: 7px 3px 5px 25px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.tag_name {
+  cursor: pointer;
+}

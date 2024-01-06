@@ -1,0 +1,103 @@
+@charset "utf-8";
+/* 상세검색 내용 */
+.Apt-list-wrap {
+    margin: 10px auto;
+    width: 100%;
+    max-width: 1000px;
+    min-width: 961px;
+    height: auto;
+    display: block;
+}
+
+.Apts-box {
+    width: 100%;
+    position: relative;
+    margin-right: auto;
+}
+
+.Apts-box::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.Apt-each {
+    float: left;
+    width: 260px;
+    height: 300px;
+    display: list-item;
+    border-radius: 0 0 80px 0;
+    margin: 0 20px 40px;
+    box-shadow: 0px 2px 14px -2px rgba(153, 162, 180, 0.8);
+}
+
+.Apt-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.Apt-container-util {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.Apt-each_img {
+    height: 170px;
+    margin-top: 20px;
+}
+
+.Apt-each_title {
+    font-size: 1.1rem;
+    margin: 12px auto;
+    text-align: center;
+    word-break: keep-all;
+}
+
+.Apt-each_hashtag {
+    font-size: 0.8rem;
+}
+
+.page {
+    /*float: clear;*/
+    text-align: center;
+    margin: 20px 0;
+}
+
+.page > a {
+    font-size: 20px;
+    margin: 3px;
+    border: 1px solid #29aeec;
+    width: 30px;
+    height: 30px;
+    box-sizing: content-box;
+    display: inline-block;
+    line-height: 27px;
+}
+
+.mainHashtag {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.Apt-each {
+    width: 30%;
+    margin: 1%;
+}
+
+/* 웹뷰 css*/
+@media screen and (min-width: 370px) and (max-width: 500px) {
+    .Apt-list-wrap {
+        margin: 10px auto;
+        width: 90%;
+        max-width: 402px;
+        min-width: 365px;
+        height: auto;
+        display: block;
+    }
+
+    .Apt-each {
+        width: 100%;
+        margin: 1%;
+    }
+}

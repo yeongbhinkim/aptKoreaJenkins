@@ -1,0 +1,137 @@
+@charset "utf-8";
+
+
+
+.search-box-wrap {
+  position: relative;
+}
+
+.detail-box {
+  position: absolute;
+  left: 25px;
+  top: 21px;
+}
+.detail-icon {
+  width: 13px;
+  height: 10px;
+  background-size: cover;
+  background-image: url('/img/icon/icon-triangle_inverted.png');
+  display: block;
+  overflow: hidden;
+  text-indent: -20000px;
+}
+.search-box {
+  position: absolute;
+  right: 25px;
+  top: 17px;
+}
+#searchBtn {
+  width: 16px;
+  height: 17px;
+  background-size: cover;
+  background-image: url('/img/icon/icon-search.png');
+  display: block;
+  overflow: hidden;
+  text-indent: -20000px;
+  background-color: white;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+#keyword {
+  width: 50vw;
+  min-width: 500px;
+  max-width: 650px;
+  flex: 1 1 0%;
+  border-radius: 2rem;
+  padding: 1rem 4rem;
+  font-size: 1rem;
+  border: none;
+}
+#keyword:focus {
+  outline: none;
+}
+#hashtags {
+  display: none;
+  width: 50vw;
+  min-width: 500px;
+  max-width: 650px;
+  flex: 1 1 0%;
+  border-radius: 2rem;
+  padding: 1rem 4rem;
+  font-size: 1rem;
+  border: none;
+}
+#hashtags > ul {
+  margin-right: 10px;
+}
+.menu {
+  user-select: none;
+  margin-top: 40px;
+}
+.menu input[type='checkbox'] + label {
+  padding-left: 25px;
+  background-repeat: no-repeat;
+}
+.menu input[type='checkbox'] {
+  display: none;
+}
+.search-detail-wrap {
+  width: 50vw;
+  min-width: 500px;
+  max-width: 650px;
+  padding: 0 4rem;
+  text-align: center;
+}
+.search-detail-content-wrap {
+  border: 3px solid #fff;
+  width: 100%;
+  min-width: 500px;
+  max-width: 650px;
+  flex: 1 1 0%;
+  border-radius: 54px;
+  padding: 1rem 4rem;
+}
+.detail-hashtag-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+.align-hashtag {
+  display: inline-block;
+  border: 2px solid #fff;
+  width: 80px;
+  height: 30px;
+  line-height: 32px;
+  border-radius: 11px 11px 0 0;
+  font-size: 14px;
+  background-color: #29aeec;
+  border-bottom: none;
+}
+.list-wrap {
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.list-wrap::-webkit-scrollbar {
+  width: 5px;
+  height: auto;
+}
+.list-wrap::-webkit-scrollbar-thumb {
+  height: 20px;
+  background-clip: content-box;
+  background-color: #fff;
+  border-radius: 40px;
+}
+.list-wrap::-webkit-scrollbar-track {
+  border: 2px solid transparent;
+  background-clip: content-box;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.sub_item {
+  height: 200px;
+}
+.hashtagList {
+  display: inline-block;
+  overflow-wrap: break-word;
+}

@@ -1,0 +1,156 @@
+<!--
+'*  파 일 명 : src\main\resources\templates\fragment\homeCenter.html
+'*  기    능 : 홈 -> 홈 센터 : 조회 조건 검색
+'*  작 성 자 : 김영빈
+'*  비    고 : 2023.02.08 작성
+  -->
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+</head>
+
+<body>
+<nav th:fragment="global" th:remove="tag">
+  <div class="util-wrap">
+    <div class="util-box">
+      <div class="search-box-wrap">
+        <div class="input_tag">
+          <td class="SB_B">
+            <table>
+              <tbody>
+              <tr>
+                <td>
+                  <label>계약일자</label>
+                  <input id="contractDate" name="contractDate" class="input_search" type="date"
+                         style="text-align: right"> ~
+                  <input id="contractDateTo" name="contractDateTo" class="input_search" type="date"
+                         style="text-align: right">
+                </td>
+                <td>
+                  <label class="search_tit011">면적</label>
+                  <select id="searchArea" name="searchArea" class="select_search">
+                  <option value="0">전체</option>
+                  <option value="1">60㎡이하</option>
+                  <option value="2">60㎡초과~85㎡이하</option>
+                  <option value="3">85㎡초과~102㎡이하</option>
+                  <option value="4">102㎡초과~135㎡이하</option>
+                  <option value="5">135㎡초과</option>
+                </select>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <!--            <table>-->
+            <!--              <tbody>-->
+            <!--              <tr>-->
+            <!--                <td>-->
+            <!--                  <div id="gubunR1">-->
+            <!--                    <label>주소구분</label>-->
+            <!--                    <input id="gubunRadio21" name="gubunRadio2" onclick="fn_select_check(this.value)" class="radio"-->
+            <!--                           type="radio" value="1" checked="checked">-->
+            <!--                    <label for="gubunRadio21">지번주소</label>-->
+            <!--                    <input id="gubunRadio22" name="gubunRadio2" onclick="fn_select_check(this.value)" class="radio"-->
+            <!--                           type="radio" value="2">-->
+            <!--                    <label for="gubunRadio22">도로명주소</label>-->
+            <!--                  </div>-->
+            <!--                </td>-->
+            <!--              </tr>-->
+            <!--              </tbody>-->
+            <!--            </table>-->
+            <table>
+              <tbody>
+              <tr>
+                <td>
+                  <label>시도</label>
+                  <select th:field="*{regionCity}" id="searchSidoCd" name="searchSidoCd" class="select_search"
+                          onchange="sidoCd(this.value)">
+                    <option value="ALL" selected="selected">전체</option>
+                    <option th:each="regionCity : ${regionCity}" th:value="${regionCity.CITY_CODE}"
+                            th:text="${regionCity.CITY_NM}">시도
+                    </option>
+                  </select>
+
+                </td>
+                <td>
+                  <div id="gugunList">
+                    <label>시군구</label>
+                    <select id="searchGugunCd" name="searchGugunCd" onchange="gugunCd(this.value)">
+                      <option value="ALL" selected="selected">전체</option>
+                    </select>
+                  </div>
+                </td>
+
+                <td>
+                  <div id="dongList">
+                    <label>읍면동</label>
+                    <select id="searchDongCd" name="searchDongCd">
+                      <option value="ALL" selected="selected">전체</option>
+                    </select>
+                  </div>
+                </td>
+
+                <!--                <td class="search_tit011">-->
+                <!--                  <label id="dongList1" style="display: block;">읍면동</label>-->
+                <!--                  <label id="loadList1" style="display: none;">도로명</label>-->
+                <!--                </td>-->
+                <!--                <td>-->
+                <!--                  <div id="dongList" style="display: block;">-->
+                <!--                    <select id="searchDongCd" name="searchDongCd">-->
+                <!--                      <option value="" selected="selected">전체</option>-->
+                <!--                    </select>-->
+                <!--                  </div>-->
+                <!--                  <div id="chosungList" style="display: block;">-->
+                <!--                    <select id="searchChosung" name="searchChosung" class="select_search" onchange="fn_load_search()">-->
+                <!--                      <option value="ALL" selected="selected">초성</option>-->
+                <!--                    </select>-->
+                <!--                  </div>-->
+                <!--                </td>-->
+                <!--                <td>-->
+                <!--                  <div id="loadList" style="display: block;">-->
+                <!--                    <select id="searchLoad" name="searchLoad" class="select_search" onchange="fn_dong_search()">-->
+                <!--                      <option value="ALL" selected="selected">도로명</option>-->
+                <!--                    </select>-->
+                <!--                  </div>-->
+                <!--                </td>-->
+                </td>
+              </tr>
+              </tbody>
+            </table>
+
+            <table>
+              <tbody>
+              <tr>
+                <td>
+                  <label class="search_tit011">금액선택(만원)</label>
+                  <input id="searchFromAmount" name="searchFromAmount" class="input_search" type="text" value=""
+                         maxlength="15"> ~
+                  <input id="searchToAmnount" name="searchToAmount" class="input_search" type="text" value=""
+                         maxlength="15">
+                </td>
+                <td>
+                  <div class="search-box">
+                    <button id="searchBtn" style="width: 29px;height: 31px;">검색</button>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+
+
+          </td>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</nav>
+</body>
+
+</html>

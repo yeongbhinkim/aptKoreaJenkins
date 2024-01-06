@@ -1,0 +1,254 @@
+<!--
+'*  파 일 명 : src\main\resources\templates\fragment\contentItem.html
+'*  기    능 : 메인 -> 콘텐츠
+'*  작 성 자 : 김영빈
+'*  비    고 : 2023.02.12 작성
+  -->
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+</head>
+<body>
+<main th:fragment="contentItem">
+
+  <form action="" method="post" th:object="${myHomePriceListForm}">
+    <input type="hidden" th:field="*{apt_id}" id="AptId">
+    <input type="text" id="AptUrl" name="AptUrl" style="display: none;"
+           th:value="|http://aptkorea.store/MyHomePrice/detail/*{apt_id}|">
+    <!--           th:value="|http://localhost:9080/MyHomePrice/detail/*{apt_id}|">-->
+    <!-- container -->
+    <!-- width : standard -->
+    <div class="container">
+
+      <!-- Apt_info -->
+      <div class="Apt_info_wrap">
+        <div class="Apt-info">
+
+          <!--   Apt-info_img  차트 박스-->
+          <div class="Apt-info_img">
+              <div class="chart_canvas_box">
+                <canvas id="chart-canvas"></canvas>
+              </div>
+          </div><!--   Apt-info_img  차트 박스-->
+
+
+          <!-- Apt-info_content-wrap 상세정보 박스-->
+          <div class="Apt-info-content-wrap">
+            <div class="Apt-info-content Apt-title-sub-box">
+              <div class="Apt-title-sub">
+                <h1 id="AptName" th:text="*{dan_gi_myeong}">단지명</h1>
+                <a href="javascript:void(0)" class="link-btn">현재 url 복사</a>
+              </div>
+            </div>
+
+            <div class="Apt-info-content Apt-location-sub-box">
+              <div class="Apt-location-icon-box icon-box">
+                <span class="mainHashtag">주소</span>
+              </div>
+              <div class="location-txt txt-box">
+                <span class="AptAddress" th:text="*{city}">시군구</span>
+              </div>
+            </div>
+
+            <div class="Apt-info-content Apt-location-sub-box">
+              <div class="Apt-location-icon-box icon-box">
+                <span class="mainHashtag">도로명</span>
+              </div>
+              <div class="location-txt txt-box">
+                <span id="AptAddressRoad" class="AptAddress" th:text="*{road_name}">도로명</span>
+              </div>
+            </div>
+
+            <div class="Apt-info-content Apt-call-sub-box">
+              <div class="Apt-location-icon-box icon-box">
+                <span class="mainHashtag">전용면적(㎡)</span>
+              </div>
+              <div class="call-txt txt-box">
+                <span class="AptAddress" th:text="*{square_meter}">전용면적(㎡)</span>
+              </div>
+            </div>
+
+
+            <div class="Apt-info-content Apt-hashtag-sub-box">
+              <div class="Apt-hashtag-icon-box icon-box">
+                <span class="mainHashtag">기타</span>
+              </div>
+              <div class="hashtag-txt txt-box" style="display: contents;">
+                <div>
+                  <span class="mainHashtag">건축년도</span>
+                  <span class="AptAddress" th:text="*{construction_date}">건축년도</span>
+                </div>
+                <div>
+                  <span class="mainHashtag">층</span>
+                  <span class="AptAddress" th:text="*{layer}">층</span>
+                </div>
+                <div>
+                  <span class="mainHashtag">번지</span>
+                  <span class="AptAddress" th:text="*{street}">번지</span>
+                </div>
+                <div>
+                  <span class="mainHashtag">본번</span>
+                  <span class="AptAddress" th:text="*{bon_bun}">본번</span>
+                </div>
+                <div>
+                  <span class="mainHashtag">부번</span>
+                  <span class="AptAddress" th:text="*{bu_bun}">부번</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End of Apt-info_content-wrap 상세정보 박스-->
+
+          <!-- map-box  지도박스    -->
+          <div class="map-box">
+            <!-- 지도를 표시할 div 입니다 -->
+            <div id="map" style="width: 100%; height: 100%;"></div>
+            <p class="map_info">마커를 클릭하면 카카오맵으로 이동합니다.</p>
+          </div>
+
+        </div><!-- Apt-info-->
+      </div><!-- End of Apt_info -->
+
+
+      <div class="Apt-header">
+        <table class="Apt-content">
+          <thead>
+          <tr>
+            <!--            <th class="Apt-content-th">주소</th>-->
+            <!--            <th class="Apt-content-th">번지</th>-->
+            <!--            <th class="Apt-content-th">본번</th>-->
+            <!--            <th class="Apt-content-th">부번</th>-->
+            <!--            <th class="Apt-content-th">단지명</th>-->
+            <!--            <th class="Apt-content-th">전용면적(㎡)</th>-->
+            <th class="Apt-content-th">계약<br>년월일</th>
+<!--            <th class="Apt-content-th">계약<br>년월</th>-->
+<!--            <th class="Apt-content-th">일</th>-->
+            <th class="Apt-content-th">거래금액<br>(만원)</th>
+            <!--            <th class="Apt-content-th">층</th>-->
+            <!--            <th class="Apt-content-th">건축년도</th>-->
+            <!--            <th class="Apt-content-th">도로명</th>-->
+<!--            <th class="Apt-content-th">해제사유발생일</th>-->
+            <th class="Apt-content-th">거래<br>유형</th>
+            <th class="Apt-content-th">중개사<br>소재지</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="item : ${list}">
+            <!--            <td class="Apt-content-td" th:text="${item.city}">시군구</td>-->
+            <!--            <td class="Apt-content-td" th:text="${item.street}">번지</td>-->
+            <!--            <td class="Apt-content-td" th:text="${item.bon_bun}">본번</td>-->
+            <!--            <td class="Apt-content-td" th:text="${item.bu_bun}">부번</td>-->
+            <!--            <td class="Apt-content-td" th:text="${item.dan_gi_myeong}">단지명</td>-->
+            <!--            <td class="Apt-content-td" th:text="${item.square_meter}">전용면적(㎡)</td>-->
+            <td class="Apt-content-td" th:text="${item.contract_date}+.+${item.contract_day}">계약년월</td>
+<!--            <td class="Apt-content-td" th:text="${item.contract_date}">계약년월</td>-->
+<!--            <td class="Apt-content-td" th:text="${item.contract_day}">계약일</td>-->
+            <td class="Apt-content-td" th:text="${item.amount}">거래금액(만원)</td>
+            <!--            <td class="Apt-content-td" th:text="${item.layer}">층</td>-->
+            <!--            <td class="Apt-content-td" th:text="${item.construction_date}">건축년도</td>-->
+            <!--            <td class="Apt-content-td" th:text="${item.road_name}">도로명</td>-->
+<!--            <td class="Apt-content-td" th:text="${item.reason_cancellation_date}">해제사유발생일</td>-->
+            <td class="Apt-content-td" th:text="${item.transaction_type}">거래유형</td>
+            <td class="Apt-content-td" th:text="${item.location_agency}">중개사소재지</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    </div>
+    <!-- End of container -->
+  </form>
+
+  <script type="text/javascript" th:src="@{${kakaoServiceKey}}"></script>
+  <script>
+      // const $AptName = AptName.textContent;
+      //road_name으로 변경
+      const $AptAddress = AptAddressRoad.textContent;
+      var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+          mapOption = {
+              center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+              level: 4 // 지도의 확대 레벨
+          };
+
+      // 지도를 생성합니다
+      var map = new kakao.maps.Map(mapContainer, mapOption);
+
+      // 주소-좌표 변환 객체를 생성합니다
+      var geocoder = new kakao.maps.services.Geocoder();
+
+      // 주소로 좌표를 검색합니다
+      geocoder.addressSearch($AptAddress, function (result, status) {
+
+          // 정상적으로 검색이 완료됐으면
+          if (status === kakao.maps.services.Status.OK) {
+
+              var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+              // 결과값으로 받은 위치를 마커로 표시합니다
+              var marker = new kakao.maps.Marker({
+                  map: map,
+                  position: coords,
+                  clickable: true
+              });
+
+              // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+              map.setCenter(coords);
+
+              // 마커를 클릭하면 카카오맵으로 이동
+              kakao.maps.event.addListener(marker, 'click', (evt) => {
+                  // window.open(`https://map.kakao.com/?q=${$AptName}`)
+                  window.open(`https://map.kakao.com/?q=${$AptAddress}`)
+              });
+          }
+      });
+
+  </script>
+
+  <script th:inline="javascript">
+      /* Function to create the chart */
+      function createChart(item) {
+
+          /* Data for the chart */
+          var data = {
+              //시간
+              // labels: contractArr,
+              datasets: [{
+                  label: '거래금액',
+                  data: item,
+                  backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                  borderColor: 'rgba(255, 99, 132, 1)',
+                  borderWidth: 1
+              }]
+          };
+          /* Options for the chart */
+          var options = {
+              scales: {
+                  xAxes: [{
+                      type: 'linear',
+                      position: 'bottom'
+                  }]
+              }
+          };
+
+          /* Get the canvas element */
+          var ctx = document.getElementById('chart-canvas').getContext('2d');
+
+          /* Create the chart */
+          new Chart(ctx, {
+              type: 'scatter',
+              data: data,
+              options: options
+          });
+      }
+
+      /* Loop through the chart data */
+      createChart([[${chart}]]);
+  </script>
+</main>
+</body>
+</html>

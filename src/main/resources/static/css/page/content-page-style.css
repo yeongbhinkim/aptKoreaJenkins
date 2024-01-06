@@ -1,0 +1,178 @@
+@charset "utf-8";
+  .container {
+    width: 97%;
+    height: auto;
+    margin: 10px auto;
+    min-width: 961px;
+    max-width: 1100px;
+  }
+  .Apt_info_wrap {
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+
+  .Apt-info {
+    width: auto;
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+  }
+  .Apt-info_img {
+    width: 30%;
+    height: 300px;
+    border: 3px solid #29aeec;
+    max-height: 300px;
+  }
+ #chart-canvas {
+   width: 330px!important;
+   height: 300px!important;
+ }
+  .Apt-info-content-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    height: 300px;
+    margin: 0 auto;
+  }
+  .Apt-info-content {
+    margin: auto 0;
+    display: flex;
+  }
+  .Apt-title-sub-box {
+    margin-top: 0;
+  }
+  .Apt-title-sub {
+    position: relative;
+    width: 100%;
+  }
+  .Apt-title-sub > h1 {
+    font-size: 25px;
+    vertical-align: top;
+    display: inline-block;
+  }
+  .icon-box {
+    width: 20%;
+    height: auto;
+  }
+  .txt-box {
+    width: 80%;
+    font-size: 14px;
+    margin: auto 0;
+  }
+  .link-btn {
+    width: 23px;
+    height: 23px;
+    background-size: cover;
+    background-image: url('/img/icon/icon-link.png');
+    display: inline-block;
+    overflow: hidden;
+    text-indent: -20000px;
+    position: absolute;
+    top: 20px;
+    right: 0;
+  }
+  .Apt-hashtag-icon-box {
+    margin: auto 0;
+  }
+  .location-icon {
+    width: 15px;
+    height: 20px;
+    background-size: cover;
+    background-image: url('/img/icon/icon-location.png');
+    display: block;
+    overflow: hidden;
+    text-indent: -20000px;
+  }
+  .call-icon {
+    width: 19px;
+    height: 20px;
+    background-size: cover;
+    background-image: url('/img/icon/icon-call.png');
+    display: block;
+    overflow: hidden;
+    text-indent: -20000px;
+  }
+  .hashtag-icon {
+    width: 17px;
+    height: 20px;
+    display: block;
+    overflow: hidden;
+    text-indent: -20000px;
+  }
+  .hashtag-all-icon {
+    width: 22px;
+    height: 22px;
+    background-size: cover;
+    background-image: url('/img/icon/icon-hashtag-all.png');
+    display: block;
+    overflow: hidden;
+    text-indent: -20000px;
+  }
+  .map-box {
+    width: 30%;
+    height: 300px;
+    border: 3px solid #29aeec;
+  }
+
+  /*지도 마커 안내*/
+  .map_info {
+    text-align: center;
+    margin-top: 7px;
+    font-size: 13px;
+  }
+
+  .Apt-content {
+    width: 100%!important;
+    border: 1px solid #444444!important;
+    border-collapse: collapse!important;
+  }
+
+  .Apt-content-th {
+    border: 1px solid #444444!important;
+    font-size: 20px!important;
+    font-weight: bold!important;
+    margin: 1rem 1rem!important;
+    padding: 1rem 1rem!important;
+  }
+  .Apt-content-td {
+    border: 1px solid #444444!important;
+    text-align: right!important;
+    font-size: 20px!important;
+    margin: 0.8rem 0.8rem!important;
+    padding: 0.8rem 0.8rem!important;
+  }
+
+.Apt-location-icon-box{
+  width: 100px;
+}
+  .mainHashtag{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .AptAddress {
+    font-size: 18px;
+    margin-left: 5px;
+  }
+/* 웹뷰 css*/
+@media screen and (min-width: 370px) and (max-width: 500px) {
+  .Apt-info {
+    display: block;
+  }
+
+  .container {
+    max-width: 402px;
+    min-width: 365px;
+  }
+  .Apt-info_img{
+    width: 100%;
+    height: auto;
+  }
+  .Apt-info-content-wrap{
+    width: 100%;
+  }
+
+  .map-box{
+    width: 100%
+  }
+
+}

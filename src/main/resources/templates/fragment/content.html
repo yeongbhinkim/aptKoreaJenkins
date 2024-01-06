@@ -1,0 +1,76 @@
+<!--
+'*  파 일 명 : src\main\resources\templates\fragment\content.html
+'*  기    능 : 메인 -> 콘텐츠
+'*  작 성 자 : 김영빈
+'*  비    고 : 2023.02.12 작성
+  -->
+<!DOCTYPE html>
+<html lang="ko" id="root"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="content(title,styles,scripts,style,script,upm,header,nav,main,footer)">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:replace="${title}">콘텐트 레이아웃</title>
+
+  <!--차트-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+  <!--common style-->
+  <!--  <link rel="stylesheet" href="" th:href="@{/css/parts/upperSearchBar.css}" />-->
+  <link rel="stylesheet" href="" th:href="@{/css/common.css}">
+  <link rel="stylesheet" href="" th:href="@{/css/page/content-page-style.css}">
+  <link rel="stylesheet" href="" th:href="@{/css/page/home-page-style.css}">
+
+  <!--common script-->
+  <!--  <script defer src="xxx.js"></script>-->
+
+
+  <!-- fontawesome -->
+  <!--  <script src="https://kit.fontawesome.com/023d8f21ed.js" crossorigin="anonymous"></script>-->
+
+  <!-- Per-page placeholder for additional link -->
+  <th:block th:replace="${styles}"></th:block>
+  <th:block th:replace="${scripts}"></th:block>
+
+  <th:block th:replace="${style}"></th:block>
+
+</head>
+<body>
+<th:block th:text="${aaa}"></th:block>
+<div class="global-wrap">
+
+  <div class="upm">
+    <div class="inner upm-inner" th:replace="${upm}">
+      upm
+    </div>
+  </div>
+
+  <div class="hdr">
+    <div class="inner hdr-inner" th:insert="${header}">
+      header
+    </div>
+  </div>
+
+  <div class="gnb">
+    <div class="inner gnb-inner" th:insert="${nav}">
+      nav
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="inner main-inner" th:insert="${main}">
+      main
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="inner foot-inner" th:insert="${footer}">
+      foot
+    </div>
+  </div>
+</div>
+<th:block th:replace="${script}"></th:block>
+</body>
+</html>
