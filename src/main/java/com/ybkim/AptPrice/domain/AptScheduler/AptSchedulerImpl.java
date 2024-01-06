@@ -1,5 +1,4 @@
 //package com.ybkim.AptPrice.domain.AptScheduler;
-//
 //import org.springframework.scheduling.annotation.Scheduled;
 //import org.springframework.stereotype.Component;
 //
