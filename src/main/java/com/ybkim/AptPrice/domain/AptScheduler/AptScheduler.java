@@ -189,7 +189,7 @@ public class AptScheduler {
             System.out.println("Transactions count: " + transactionsList.size());
             // 리스트에 저장된 데이터 확인
             for (AptApiDb transaction : transactionsList) {
-                //여기에 인설트 넣으면 될듯?
+
                 aptApiDbSVC.ApiDb(transaction);
                 System.out.println("transaction = " + transaction);
             }
