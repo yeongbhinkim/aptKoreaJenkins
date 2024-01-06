@@ -185,7 +185,6 @@ public class AptScheduler {
                 }
             }
 //            }
-//            System.out.println("transactionsList " + transactionsList);
             System.out.println("Transactions count: " + transactionsList.size());
             // 리스트에 저장된 데이터 확인
             for (AptApiDb transaction : transactionsList) {
