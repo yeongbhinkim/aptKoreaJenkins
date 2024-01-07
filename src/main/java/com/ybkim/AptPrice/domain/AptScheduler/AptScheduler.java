@@ -197,7 +197,7 @@ public class AptScheduler {
             e.printStackTrace();
         }
     }
-//testsasdawdasawd
+//왜?
 
 //    @Scheduled(cron = "0 10 20 * * ?")
 
