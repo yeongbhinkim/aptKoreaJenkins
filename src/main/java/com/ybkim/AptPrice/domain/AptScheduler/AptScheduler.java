@@ -196,7 +196,7 @@ public class AptScheduler {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }//test
 
 //    @Scheduled(cron = "0 10 20 * * ?")
 
