@@ -28,7 +28,7 @@ public class AptApiDbDAOImpl implements AptApiDbDAO {
 
     @Override
     public void insertApiDb(AptApiDb aptApiDb) {
-//    System.out.println("aptApiDb = " + aptApiDb);
+//    // System.out.println("aptApiDb = " + aptApiDb);
         StringBuilder sql = new StringBuilder();
 //        sql.append(" INSERT INTO apt ( ");
 //        sql.append("     apt_id, city, street, bon_bun, bu_bun, dan_gi_myeong, ");
@@ -114,7 +114,7 @@ public class AptApiDbDAOImpl implements AptApiDbDAO {
 //  @Override
 //  public void insertApiDb(AptApiDb  aptApiDb) {
 //    StringBuffer sql = new StringBuffer();
-//    System.out.println("aptApiDb = " + aptApiDb);
+//    // System.out.println("aptApiDb = " + aptApiDb);
 //    sql.append(" INSERT INTO apt ( ");
 //    sql.append("     apt_id, city, street, bon_bun, bu_bun, dan_gi_myeong,  ");
 //    sql.append("     square_meter, contract_date, contract_day, amount, ");

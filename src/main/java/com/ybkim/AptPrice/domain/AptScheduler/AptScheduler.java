@@ -46,7 +46,7 @@ public class AptScheduler {
 //    @Scheduled(cron = "0 57 20 * * ?")
     @Scheduled(cron = "0 34 23 * * ?")
     public void downloadCsvFile() {
-        System.out.println("CSV 다운로드 작업 시작");
+        // System.out.println("CSV 다운로드 작업 시작");
         List<AptApiDb> transactionsList = new ArrayList<>();
 
         // Trust manager setup to ignore certificate validation (unsafe for production)
@@ -122,7 +122,7 @@ public class AptScheduler {
 
             // 응답 코드 가져오기
             int responseCode = con.getResponseCode();
-            System.out.println("Response Code : " + responseCode);
+            // System.out.println("Response Code : " + responseCode);
 
             // 응답 받기
             try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream(), "EUC-KR"))) {
@@ -136,10 +136,10 @@ public class AptScheduler {
                     }
                 }
 
-//                System.out.println("response = " + response);
+//                // System.out.println("response = " + response);
                 // 받은 응답을 CSV 파서로 파싱
 //                String[] records = response.toString().split("\"");
-//                System.out.println("records = " + records);
+//                // System.out.println("records = " + records);
 //                for (String record : records) {
                 // 레코드가 큰따옴표로 시작한다면, 첫 번째 큰따옴표를 제거합니다.
 //                    String cleanedRecord = record.startsWith("\"") ? record.substring(1) : record;
@@ -157,7 +157,7 @@ public class AptScheduler {
 
                 for (CSVRecord csvRecord : parser) {
                     AptApiDb transaction = new AptApiDb();
-//                    System.out.println("csvRecord = " + csvRecord);
+//                    // System.out.println("csvRecord = " + csvRecord);
                     transaction.setCity(csvRecord.get("city"));
                     transaction.setStreet(csvRecord.get("street"));
                     transaction.setBon_bun(csvRecord.get("bon_bun"));
@@ -180,19 +180,19 @@ public class AptScheduler {
                     // 숫자로 변환한 후, 두 자리 형식으로 문자열 포맷팅
                     contractDay = String.format("%02d", Integer.parseInt(contractDay));
                     transaction.setFullContractDate(csvRecord.get("contract_date") + contractDay);
-//                    System.out.println("transaction = " + transaction);
+//                    // System.out.println("transaction = " + transaction);
                     transactionsList.add(transaction);
                 }
             }
 //            }
-            System.out.println("Transactions count: " + transactionsList.size());
+            // System.out.println("Transactions count: " + transactionsList.size());
             // 리스트에 저장된 데이터 확인
             for (AptApiDb transaction : transactionsList) {
 
                 aptApiDbSVC.ApiDb(transaction);
-                System.out.println("transaction = " + transaction);
+                // System.out.println("transaction = " + transaction);
             }
-            System.out.println("==========완료==========");
+            // System.out.println("==========완료==========");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -210,14 +210,14 @@ public class AptScheduler {
 
 //        for (LocalDate date = startDate; date.isBefore(currentDate.plusMonths(1)); date = date.plusMonths(1)) {
         String formattedDate = currentDate.format(formatter);
-        System.out.println("formattedDate = " + formattedDate);
+        // System.out.println("formattedDate = " + formattedDate);
 
 
         List<CountyCode> apiRegionCounty = aptApiDbSVC.apiRegionCounty();
 
         for (int i = 0; i < apiRegionCounty.size(); i++) {
             CountyCode county = apiRegionCounty.get(i);
-            System.out.println("county.getCounty_code() = " + county.getCounty_code());
+            // System.out.println("county.getCounty_code() = " + county.getCounty_code());
 
             String countyCode = county.getCounty_code().substring(0, 5);
 
@@ -233,7 +233,7 @@ public class AptScheduler {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Content-type", "application/json");
-            System.out.println("Response code: " + conn.getResponseCode());
+            // System.out.println("Response code: " + conn.getResponseCode());
             BufferedReader rd;
 
             if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
@@ -250,7 +250,7 @@ public class AptScheduler {
             conn.disconnect();
 
             String xmlData = sb.toString();
-            System.out.println("xmlData = " + xmlData);
+            // System.out.println("xmlData = " + xmlData);
 
             // DocumentBuilderFactory 인스턴스 생성
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -328,33 +328,33 @@ public class AptScheduler {
 
 
                     String countyDistrictsNm = countyCode + 법정동읍면동코드;
-                    System.out.println("countyDistrictsNm = " + countyDistrictsNm);
+                    // System.out.println("countyDistrictsNm = " + countyDistrictsNm);
                     String countyDistrictsNmTest = aptApiDbSVC.selectCounty(countyDistrictsNm) != null
                             ? aptApiDbSVC.selectCounty(countyDistrictsNm).getCounty()
                             : null;
 
-                    System.out.println("countyDistrictsNmTest = " + countyDistrictsNmTest);
+                    // System.out.println("countyDistrictsNmTest = " + countyDistrictsNmTest);
 
                     String city;
 
                     if (법정동.replace(" ", "").equals(countyDistrictsNmTest)) {
-                        System.out.println("1");
+                        // System.out.println("1");
                         city = aptApiDbSVC.selectCity(countyDistrictsNm).getCity() + 법정동;
-                        System.out.println("1 = " + city);
+                        // System.out.println("1 = " + city);
                     } else {
-                        System.out.println("2");
+                        // System.out.println("2");
                         city = aptApiDbSVC.selectCity(countyDistrictsNm).getCity() + " " + aptApiDbSVC.selectCounty(countyDistrictsNm).getCounty() + 법정동;
-                        System.out.println("2 = " + city);
+                        // System.out.println("2 = " + city);
                     }
 
-                    System.out.println("city = " + city);
+                    // System.out.println("city = " + city);
 
                     if (월.length() == 1) {
                         월 = "0" + 월;
                     }
 
                     String contract_date = 년 + 월;
-//                        System.out.println("contract_date = " + contract_date);
+//                        // System.out.println("contract_date = " + contract_date);
 
                     AptApiDb aptApiDb = new AptApiDb();
                     aptApiDb.setCity(city);
@@ -386,7 +386,7 @@ public class AptScheduler {
 
 
                     // 추출된 데이터 출력 또는 처리
-                    System.out.println("aptApiDb: " + aptApiDb);
+                    // System.out.println("aptApiDb: " + aptApiDb);
                     // 추가적인 데이터 처리
                     //여기에 인설트 머지문 생성
                     try {
@@ -399,7 +399,7 @@ public class AptScheduler {
             }
 
 
-            System.out.println("======================완료===================");
+            // System.out.println("======================완료===================");
         }
 //        }
     }
