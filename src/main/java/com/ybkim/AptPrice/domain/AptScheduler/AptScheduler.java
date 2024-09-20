@@ -180,7 +180,7 @@ public class AptScheduler {
                     // 숫자로 변환한 후, 두 자리 형식으로 문자열 포맷팅
                     contractDay = String.format("%02d", Integer.parseInt(contractDay));
                     transaction.setFullContractDate(csvRecord.get("contract_date") + contractDay);
-//                    // System.out.println("transaction = " + transaction);
+//                     System.out.println("transaction = " + transaction);
                     transactionsList.add(transaction);
                 }
             }
