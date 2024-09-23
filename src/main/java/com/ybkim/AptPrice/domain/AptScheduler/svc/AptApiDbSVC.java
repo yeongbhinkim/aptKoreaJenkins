@@ -21,4 +21,6 @@ public interface AptApiDbSVC {
 
     CountyCode selectCity(String city);
     CountyCode selectCounty(String county);
+
+    String startDate();
 }

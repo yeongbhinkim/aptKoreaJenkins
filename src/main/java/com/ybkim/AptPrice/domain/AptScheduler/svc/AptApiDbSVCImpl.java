@@ -53,5 +53,11 @@ public class AptApiDbSVCImpl implements AptApiDbSVC {
     return AptApiDbDAO.selectCounty(county);
   }
 
+  @Override
+  public String startDate() {
+
+    return AptApiDbDAO.startDate();
+  }
+
 
 }

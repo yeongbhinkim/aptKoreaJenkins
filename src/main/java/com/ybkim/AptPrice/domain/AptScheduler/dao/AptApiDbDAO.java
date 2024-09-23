@@ -24,4 +24,6 @@ public interface AptApiDbDAO {
 
   CountyCode selectCity(String city);
   CountyCode selectCounty(String county);
+
+  String startDate();
 }

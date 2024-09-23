@@ -233,18 +233,42 @@ public class AptApiDbDAOImpl implements AptApiDbDAO {
             return countyMm;
         } catch (EmptyResultDataAccessException e) {
             // 첫 번째 쿼리 결과가 없을 경우 두 번째 쿼리 실행
-            String countyCodePrefix = county.substring(0, 5);
-            sql = new StringBuffer();  // 쿼리 문자열 초기화
-            sql.append("SELECT COUNTY_NM as county FROM region_county WHERE COUNTY_CODE LIKE CONCAT(?, '%')");
-            try {
-                return jdbcTemplate.queryForObject(sql.toString(),
-                        new BeanPropertyRowMapper<>(CountyCode.class), countyCodePrefix);
-            } catch (EmptyResultDataAccessException ex) {
-                // 두 번째 쿼리 결과도 없을 경우 null 반환
-                return null;
-            }
+//            String countyCodePrefix = county.substring(0, 5);
+//            sql = new StringBuffer();  // 쿼리 문자열 초기화
+//            sql.append("SELECT CITY_NM as county FROM region_city WHERE CITY_CODE LIKE CONCAT(?, '%')");
+//            try {
+//                return jdbcTemplate.queryForObject(sql.toString(),
+//                        new BeanPropertyRowMapper<>(CountyCode.class), countyCodePrefix);
+//            } catch (EmptyResultDataAccessException ex) {
+//                // 두 번째 쿼리 결과도 없을 경우 null 반환
+//                return null;
+//            }
+            return null;
         }
     }
+
+    @Override
+    public String startDate() {
+        // SQL 쿼리 작성
+        StringBuffer sql = new StringBuffer();
+        sql.append(" SELECT FULL_CONTRACT_DATE + INTERVAL 1 DAY AS fullContractDate ");
+        sql.append(" FROM apt ");
+        sql.append(" ORDER BY FULL_CONTRACT_DATE DESC ");
+        sql.append(" LIMIT 1 ");
+
+        // 쿼리 실행 및 결과 매핑
+        try {
+            // 단일 값을 반환하는 queryForObject 사용
+            return jdbcTemplate.queryForObject(
+                    sql.toString(),
+                    String.class // FullContractDate가 String 타입으로 반환되도록 변경
+            );
+        } catch (EmptyResultDataAccessException e) {
+            // 결과가 없는 경우 null 반환
+            return null;
+        }
+    }
+
 
 
 }
