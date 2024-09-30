@@ -144,8 +144,9 @@
             <!--            <td class="Apt-content-td" th:text="${item.bu_bun}">부번</td>-->
             <!--            <td class="Apt-content-td" th:text="${item.dan_gi_myeong}">단지명</td>-->
             <!--            <td class="Apt-content-td" th:text="${item.square_meter}">전용면적(㎡)</td>-->
-            <td class="Apt-content-td" th:text="${item.contract_date}+${item.contract_day}">계약년월</td>
-<!--            <td class="Apt-content-td" th:text="${item.contract_date}">계약년월</td>-->
+<!--            <td class="Apt-content-td" th:text="${item.contract_date} + ${item.contract_day}">계약년월</td>-->
+            <td class="Apt-content-td" th:text="${#strings.concat(item.contract_date, item.contract_day)}">계약년월</td>
+            <!--            <td class="Apt-content-td" th:text="${item.contract_date}">계약년월</td>-->
 <!--            <td class="Apt-content-td" th:text="${item.contract_day}">계약일</td>-->
             <td class="Apt-content-td" th:text="${item.amount}">거래금액(만원)</td>
             <!--            <td class="Apt-content-td" th:text="${item.layer}">층</td>-->
