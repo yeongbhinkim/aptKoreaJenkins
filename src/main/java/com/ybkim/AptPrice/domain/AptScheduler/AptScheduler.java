@@ -206,7 +206,6 @@ public class AptScheduler {
     }
 
 //    @Scheduled(cron = "0 10 20 * * ?")
-//test
     //    @Scheduled(cron = "0 0 0 1 * ?")
 //    @Scheduled(cron = "0 12 18 * * ?")
     @Scheduled(cron = "0 34 23 * * ?")
