@@ -27,7 +27,7 @@ public class homeDAOImpl implements homeDAO {
   public List<home> selectRegionCity() {
     StringBuffer sql = new StringBuffer();
 
-    sql.append(" SELECT * FROM REGION_CITY ORDER BY 2 ");
+    sql.append(" select * from region_city order by 2 ");
 
     List<home> list = jdbcTemplate.query(sql.toString(),
         new BeanPropertyRowMapper<>(home.class)
@@ -44,9 +44,9 @@ public class homeDAOImpl implements homeDAO {
   public List<home> selectRegionCounty(String CITY_CODE) {
     StringBuffer sql = new StringBuffer();
 
-    sql.append(" SELECT * FROM REGION_COUNTY  ");
-    sql.append(" WHERE SUBSTR(COUNTY_CODE, 1,2 ) = SUBSTR(?, 1,2 ) ");
-    sql.append(" ORDER BY 2 ");
+    sql.append(" select * from region_county  ");
+    sql.append(" where substr(county_code, 1,2 ) = substr(?, 1,2 ) ");
+    sql.append(" order by 2 ");
 
     List<home> list = jdbcTemplate.query(sql.toString(),
         new BeanPropertyRowMapper<>(home.class),CITY_CODE
@@ -63,9 +63,9 @@ public class homeDAOImpl implements homeDAO {
   public List<home> selectRegionDistricts(String COUNTY_CODE) {
     StringBuffer sql = new StringBuffer();
 
-    sql.append(" SELECT * FROM REGION_DISTRICTS  ");
-    sql.append(" WHERE SUBSTR(DISTRICTS_CODE, 1, 5 ) = SUBSTR(?, 1, 5 ) ");
-    sql.append(" ORDER BY 2 ");
+    sql.append(" select * from region_districts  ");
+    sql.append(" where substr(districts_code, 1, 5 ) = substr(?, 1, 5 ) ");
+    sql.append(" order by 2 ");
 
     List<home> list = jdbcTemplate.query(sql.toString(),
         new BeanPropertyRowMapper<>(home.class),COUNTY_CODE
